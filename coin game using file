@@ -1,0 +1,45 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+#include<fstream>
+using namespace std;
+
+int main()
+{
+	srand(time(NULL));
+	int n;
+	cout<<"enter range of values"<<endl;
+	cin >>n;
+	int t=0;
+	int h=0;
+	int arr[n];
+	string fl;
+	cout<<"enter a file"<<endl;
+	cin>>fl;
+	ofstream il;
+	il.open(fl);
+	
+	for(int i=0;i<n;i++)
+	{
+		arr[i]=rand()%2;
+		if(arr[i]==0)
+		{
+		il<<"head"<<" ";
+		h++;
+	}
+		if(arr[i]==1)
+		{
+		il<<"tail"<<" ";
+		t++;
+	}
+	}
+	if(h>t)
+	system("color E5");
+	else 
+	system("color B5");
+	
+	il.close();
+	cout<<"heads"<<" "<<h<<endl;
+	cout<<"tails"<<" "<<t<<endl;
+	cout<<"total"<<" "<<n<<endl;
+}
